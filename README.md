@@ -29,6 +29,6 @@ npm run dev
 ```
 
 ## Features
-1- GitHub OAuth and Supabase authentication
+1- GitHub OAuth and Supabase authentication.
 2- Real-time collaborative to-do list
 3- full CRUD ops
