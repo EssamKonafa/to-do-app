@@ -3,3 +3,8 @@ export interface Supabase {
     auth:any
     signInWithOAuth:any
 }
+
+export interface UserStatus {
+    userId: string | null; 
+    isAuthenticated: boolean;
+  }
