@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/Sidebar/Sidebar";
 import { AuthProvider } from "@/Context/AuthProvider";
+import TanStackQueryProvider from "@/Providers/TanStackQueryProvider";
+
+const poppins = Poppins({
+  weight: "300",
+  variable: "--font-poppins",
+  subsets: ["latin"],
+});
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,16 +38,18 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <AuthProvider>
-          <SidebarProvider>
-            <AppSidebar />
-            {/* <SidebarTrigger /> */}
-            <div className="w-full">
-              {children}
-            </div>
-          </SidebarProvider>
-        </AuthProvider>
+        >
+        <TanStackQueryProvider>
+          <AuthProvider>
+            <SidebarProvider>
+              <AppSidebar />
+              <SidebarTrigger />
+              <div className="w-full">
+                {children}
+              </div>
+            </SidebarProvider>
+          </AuthProvider>
+        </TanStackQueryProvider>
 
       </body>
     </html>

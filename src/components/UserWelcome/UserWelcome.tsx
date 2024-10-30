@@ -1,17 +1,35 @@
-import { Hand } from 'lucide-react'
-import React from 'react'
+"use client"
+import useUserStatusStore from '@/Stores/AuthStore';
+import React, { useEffect, useState } from 'react'
 
-function UserWelcome () {
+function UserWelcome() {
+
+    //user info from the global state
+    const { userInfo }: any = useUserStatusStore();
+    
+    const [currentDate, setCurrentDate] = useState('');
+
+    const dateToday = () => {
+        const date = new Date();
+        const options: Intl.DateTimeFormatOptions = {
+            weekday: 'short',
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+        };
+        setCurrentDate(`It's ${date.toLocaleDateString('en-US', options)}`);
+    };
+
+    useEffect(() => {
+        dateToday()
+    }, []);
+
     return (
         <div>
-            <div className="flex gap-x-2">
-                <p className="font-semibold text-[25px]">Good Morning, User.name! </p>{/*make it dynamic based on the time*/}
-                <Hand className="border my-auto" />
-            </div>
-            <p className="text-[20px]">It's Wed, 6 July 2023</p>
-            {/* <p className="text-[20px] font-bold">Home</p> */}
+            <p className="font-semibold text-[25px]">Welcome Back {userInfo?.name}!  </p>
+                <p className="text-[20px]">{currentDate}</p>
         </div>
     )
-}
+} 
 
 export default UserWelcome 
