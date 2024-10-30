@@ -28,7 +28,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=<your-supabase-anon-key>
 npm run dev
 ```
 
-##Features
+## Features
 1- GitHub OAuth and Supabase authentication
 2- Real-time collaborative to-do list
 3- full CRUD ops
