@@ -1,8 +1,6 @@
 'use client'
 
 import { usePathname, useRouter } from 'next/navigation'
-import useAuth from '@/hooks/useAuth'
-import { useEffect } from 'react'
 import UserWelcome from '@/components/UserWelcome/UserWelcome'
 import AddTask from '@/components/Tasks/AddTask'
 
