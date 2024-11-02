@@ -20,7 +20,7 @@ npm install
 3-Environment Variables Create a .env.local file in the project root and add the following environment variables:
 ```
 NEXT_PUBLIC_SUPABASE_URL=<your-supabase-url>
-NEXT_PUBLIC_SUPABASE_ANON_KEY=<your-supabase-anon-key>
+NEXT_PUBLIC_SUPABASE_KEY=<your-supabase-anon-key>
 ```
 
 4- Run the Application
